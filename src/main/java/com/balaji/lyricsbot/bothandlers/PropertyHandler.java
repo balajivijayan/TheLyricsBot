@@ -16,8 +16,9 @@ public class PropertyHandler {
 		InputStream inputStream = null;
 		try {
 			props = new Properties();
-			File file = new File(getClass().getClassLoader().getResource(FILE_NAME).getFile());
-			inputStream = new FileInputStream(file);
+			//File file = new File(getClass().getClassLoader().getResource(FILE_NAME).getFile());
+			inputStream = ClassLoader.getSystemResourceAsStream(FILE_NAME);
+					//new FileInputStream(file);
 			props.load(inputStream);
 		} catch (Exception e) {
 			e.printStackTrace();
